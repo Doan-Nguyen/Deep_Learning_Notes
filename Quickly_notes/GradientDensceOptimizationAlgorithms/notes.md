@@ -54,7 +54,26 @@
         - Hội tụ không ổn định.
         - Không sử dụng các cách thức tối ưu vector
 
+### 2.3 Mini-batch Gradient Descent 
 
-## 3. Thách thức trong việc tối ưu gradient descent
+## 3. Tối ưu trong học máy
+### 3.1 Tối ưu lồi 
++ Trong học máy, các hàm mất mát thường được cố gắng chuyển về khả năng có thể tối ưu lồi.
++ Đôi khi, ta cũng sẽ gặp các trường hợp không lồi:
+    - Nhiều điểm cực tiểu địa phương -> khó khăn khi tìm cực tiểu toàn cục.
+        - Đôi khi, việc cố gắng tìm *global min* không hẳn tốt, có thể dẫn đến overfitting.
+    - Các điểm yên ngựa cũng gây khó khăn.
+        - Xét trong không gian nhiều chiều của hàm không lồi, điểm yên ngựa có số lượng nhiều hon so với *local min*.
+        - Các điểm yên ngựa cũng ảnh hưởng đến quá trình training.
+            - Với *Batch Gradient Descent* có thể bị mắc kẹt *stuck* tại điểm yên ngựa.
+            - SGD có khả năng vượt qua điểm yên ngựa. 
+    - ? Flat regions exist ~ một vùng có cùng giá trị trong một chiều nào đó trong không gian.
+        - Vùng có giá trị các điểm là hằng số & đạo hàm bậc 2 *Hessian* đạt giá trị 0 -> khó phân biệt vùng cực tiểu hay vùng yên ngựa.
+        - Vấn đề khi vùng này có gía trị hàm mất mát lớn.
+        - Việc thoát khỏi vùng yên ngựa này khó.
+        - vd: minh hoạt vùng yên ngựa 
+
+            ![flat region example](figures/flat_region_example.png)
+
 
 ## 4. Luyện tập gradient descent
